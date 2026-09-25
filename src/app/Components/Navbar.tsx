@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/app/assets/logo.png'
+import Link from 'next/link';
 const Navbar = () => {
     const links = <>
-      <li><a>Workouts</a></li>
+      <li><Link href={'/'}>Workouts</Link></li>
       <li><a>My Plan</a></li>
     </>
     return (
@@ -22,7 +23,7 @@ const Navbar = () => {
     <div className='flex justify-center'>
         <Image src={logo} alt='Logo' width={35} height={1}
         ></Image>
-    <a className="btn btn-ghost text-3xl font-extrabold">FITLOG</a>
+    <Link href={'/'} className="btn btn-ghost text-3xl font-extrabold">FITLOG</Link>
 
     </div>
   </div>
