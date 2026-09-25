@@ -1,13 +1,30 @@
+'use client'
 import { IWorkOuts } from '@/app/Type/type';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { CiClock1, CiStar } from 'react-icons/ci';
 import { FaFire } from 'react-icons/fa';
 import { MdCancel, MdDone } from 'react-icons/md';
+import { WorkoutContext } from '@/app/context/page';
 
-const MyPlanCard = ({ work }: { work: IWorkOuts }) => {
-    const { id, name, image, equipment,duration, caloriesBurned,rating } = work
+const MyPlanCard = ({ work ,type}: { work: IWorkOuts,type: 'today' | 'later'; }) => {
+    const { id, name, image, equipment, duration, caloriesBurned, rating } = work
+    const { laterList, setLaterList, todayList, setTodayList } = useContext(WorkoutContext)
+    // const [typeOf, setTypeOf] = useState<"today" | "later" | "">("");
+    const handleRemove = () => {
+        if (type === "later") {
+            const updatedLater = laterList.filter((today) => String(today.id) !== String(work.id))
+            setLaterList(updatedLater)
+            console.log('remove')
+        }
+        else if (type=== "today") {
+            const updatedToday = todayList.filter((today) => String(today.id) !== String(work.id))
+            setTodayList(updatedToday)
+            console.log('remove')
+        }
+
+    }
 
     return (
         <div>
@@ -47,12 +64,16 @@ const MyPlanCard = ({ work }: { work: IWorkOuts }) => {
                     </div>
 
                 </div>
-            <div className='flex flex-wrap gap-2 items-center'>
-                <Link className='btn rounded-2xl border-mist-600' href={`/workouts/${id}`}>View Details</Link>
-                <Link className='btn rounded-2xl bg-[#CCFF00] text-black' href={`/workouts/${id}`}><MdDone className='text-xl'/>Mark as Done</Link>
-                <Link href={`/workouts/${id}`} className='text-2xl'><MdCancel /></Link>
+                <div className='flex flex-wrap gap-2 items-center'>
+                    <Link className='btn rounded-2xl border-mist-600' href={`/workouts/${id}`}>View Details</Link>
+                    <Link className='btn rounded-2xl bg-[#CCFF00] text-black' href={`/workouts/${id}`}><MdDone className='text-xl' />Mark as Done</Link>
+                    <div>
+                        <button onClick={() => handleRemove()} className='text-2xl'><MdCancel />
+                        </button>
+                    </div>
 
-            </div>
+
+                </div>
             </div>
 
 

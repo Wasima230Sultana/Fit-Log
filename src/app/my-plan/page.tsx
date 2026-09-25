@@ -6,7 +6,6 @@ import MyPlanBoxToday from '../Components/MyPlanPart/MyPlanBoxToday';
 import MyPlanBoxLater from '../Components/MyPlanPart/MyPlanBoxLater';
 import MyPlanCard from '../Components/MyPlanPart/MyPlanCard';
 import Link from 'next/link';
-import SortPlan from '../Components/MyPlanPart/SortPlan';
 import { IWorkOuts } from '../Type/type';
 
 const MyPlanPage = () => {
@@ -48,8 +47,7 @@ const sortedLater = sortWorks(laterList)
                 { toggle? <MyPlanBoxToday></MyPlanBoxToday> :<MyPlanBoxLater></MyPlanBoxLater> }
             </div>
                <div className='text-center'>
-            <select 
-            defaultValue="Rating" 
+            <select    
             className="select appearance-none"
             value={sortBy}
             onChange={(e)=>setSortBy(e.target.value as "duration" | "calories" | "rating")}
@@ -95,6 +93,7 @@ const sortedLater = sortWorks(laterList)
                                 <MyPlanCard
                                     key={idx}
                                     work={work}
+                                    type="today"
                                 />
                             ))
                         )}
@@ -133,6 +132,7 @@ const sortedLater = sortWorks(laterList)
                                 <MyPlanCard
                                     key={idx}
                                     work={work}
+                                    type="later"
                                 />
                             ))
                         )}
