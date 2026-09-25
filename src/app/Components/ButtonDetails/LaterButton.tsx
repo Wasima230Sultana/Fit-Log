@@ -10,10 +10,10 @@ const LaterButton = ({work}:{work:IWorkOuts}) => {
     const handleLaterList=()=>{
           const checkList = laterList.find((t)=>String(t.id) === String(work.id)) as IWorkOuts;
           if(checkList){
-        toast.error("Already added this item");
+            toast.error("Already added this item for later plan");
           }else{
             setLaterList([...laterList,work])
-   toast.success(`Saved "${work.name}" in later plan`);
+            toast.success(`Saved "${work.name}" in later plan`);
           }
 
 
