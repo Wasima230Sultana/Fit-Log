@@ -1,14 +1,15 @@
 import Image from 'next/image';
-import React from 'react';
 import logo from '@/app/assets/logo.png'
 import Link from 'next/link';
+import NavButton from './NavbarButtons/NavButton';
 const Navbar = () => {
+  // const {}= use(WorkoutContext)
   const links = <>
     <li><Link href={'/'}>Workouts</Link></li>
-    <li><a>My Plan</a></li>
+    <li><Link href={'/my-plan'}>My Plan</Link></li>
   </>
   return (
-    <div className="navbar bg-base-100 shadow-lg p-5">
+    <div className="navbar bg-base-100 shadow-lg p-5 md:px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,8 +34,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        <button className='btn'>Plan</button>
-        <button className='btn'>Saved</button>
+       <NavButton></NavButton>
 
       </div>
     </div>

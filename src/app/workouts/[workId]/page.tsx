@@ -1,7 +1,7 @@
+import LaterButton from '@/app/Components/ButtonDetails/LaterButton';
+import TodayButton from '@/app/Components/ButtonDetails/TodayButton';
 import { IWorkOuts } from '@/app/Type/type';
 import Image from 'next/image';
-import React from 'react';
-import { FaBookmark, FaCalendarPlus } from 'react-icons/fa';
 export interface IWorkoutsDetails {
     params: Promise<{
         workId: string
@@ -26,7 +26,7 @@ const WorkoutsDetails = async ({ params }: IWorkoutsDetails) => {
     // console.log(work)
     return (
         <div className='space-y-6 my-6 px-10 '>
-            <div className="card md:card-side bg-base-100 shadow-sm gap-5 ">
+            <div className="card card-side bg-base-100 shadow-sm gap-5 ">
                 <figure>
                     <Image className='w-full p-1 rounded-2xl' src={work.image} alt='Image' width={400} height={100}></Image>
                 </figure>
@@ -99,8 +99,8 @@ const WorkoutsDetails = async ({ params }: IWorkoutsDetails) => {
                     </div>
 
                     <div className="card-actions">
-                        <button className="btn bg-[#CCFF00] text-black "> <FaCalendarPlus />Add to today's plan</button>
-                         <button className="btn border-mist-500"><FaBookmark />Save for later</button>
+                      <TodayButton work={work}></TodayButton>
+                      <LaterButton work={work}></LaterButton>
                     </div>
                 </div>
             </div>
