@@ -4,7 +4,7 @@ import { WorkoutContext } from "@/app/context/page";
 import { useContext } from "react";
 
 const MyPlanBoxLater = () => {
-    const {laterList,setLaterList} = useContext(WorkoutContext)
+    const {laterList} = useContext(WorkoutContext)
     const totalCalories = 
     laterList.reduce((total, workout) => total + workout.caloriesBurned, 0);
         const totalTime = 

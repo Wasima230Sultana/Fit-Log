@@ -2,9 +2,9 @@
 
 import { useContext, useState } from 'react';
 import { WorkoutContext } from '../context/page';
-import WorkoutsCard from '../Components/homepage/WorkoutsCard';
 import MyPlanBoxToday from '../Components/MyPlanPart/MyPlanBoxToday';
 import MyPlanBoxLater from '../Components/MyPlanPart/MyPlanBoxLater';
+import MyPlanCard from '../Components/MyPlanPart/MyPlanCard';
 
 const MyPlanPage = () => {
     const {
@@ -61,7 +61,7 @@ const MyPlanPage = () => {
                             </div>
                         ) : (
                             todayList.map((work, idx) => (
-                                <WorkoutsCard
+                                <MyPlanCard
                                     key={idx}
                                     work={work}
                                 />
@@ -99,7 +99,7 @@ const MyPlanPage = () => {
                             </div>
                         ) : (
                             laterList.map((work, idx) => (
-                                <WorkoutsCard
+                                <MyPlanCard
                                     key={idx}
                                     work={work}
                                 />

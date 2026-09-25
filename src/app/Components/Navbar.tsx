@@ -1,12 +1,14 @@
+'use client'
 import Image from 'next/image';
 import logo from '@/app/assets/logo.png'
 import Link from 'next/link';
 import NavButton from './NavbarButtons/NavButton';
+import { usePathname } from 'next/navigation';
 const Navbar = () => {
-  // const {}= use(WorkoutContext)
+  const pathname = usePathname()
   const links = <>
-    <li><Link href={'/'}>Workouts</Link></li>
-    <li><Link href={'/my-plan'}>My Plan</Link></li>
+    <li><Link className={pathname === '/' ? 'text-[#C2F800]': ''}  href={'/'}>Workouts</Link></li>
+    <li><Link className={pathname === '/my-plan' ? 'text-[#C2F800]': ''}  href={'/my-plan'}>My Plan</Link></li>
   </>
   return (
     <div className="navbar bg-base-100 shadow-lg p-5 md:px-20">
