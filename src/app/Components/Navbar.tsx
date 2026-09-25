@@ -8,7 +8,7 @@ const Navbar = () => {
       <li><a>My Plan</a></li>
     </>
     return (
-       <div className="navbar bg-base-100 shadow-sm p-5">
+       <div className="navbar bg-base-100 shadow-lg p-5">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,7 +21,7 @@ const Navbar = () => {
       </ul>
     </div>
     <div className='flex justify-center'>
-        <Image src={logo} alt='Logo' width={35} height={1}
+        <Image className="w-10 hidden lg:flex" src={logo} alt='Logo' width={30} height={1}
         ></Image>
     <Link href={'/'} className="btn btn-ghost text-3xl font-extrabold">FITLOG</Link>
 

@@ -3,7 +3,7 @@ import banner from '@/app/assets/banner.png'
 import Image from 'next/image';
 const Banner = () => {
     return (
-        <div className='max-w-7xl mx-auto flex justify-between items-center my-4 bg-[#222630] p-5 rounded-xl'>
+        <div className='max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-5 text-center md:text-left items-center my-4 bg-[#222630] p-5 rounded-xl'>
             <div className='space-y-5'>
                 <p className='text-[#C2F800]'>WORKOUT LIBRARY</p>
                 <h2 className='font-extrabold text-5xl'>TRAIN WITH INTENT. LOG <br></br>
@@ -15,7 +15,7 @@ into today's plan, and watch the week's work add up.</p>
 
 
             <div>
-                <Image src={banner} alt='banner' width={400} height={150}
+                <Image  src={banner} alt='banner' width={400} height={150}
                 ></Image>
             </div>
         </div>
