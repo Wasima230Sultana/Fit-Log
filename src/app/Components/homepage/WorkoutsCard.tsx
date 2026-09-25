@@ -1,5 +1,6 @@
 import { IWorkOuts } from '@/app/Type/type';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { CiClock1, CiStar } from 'react-icons/ci';
 import { FaFire } from 'react-icons/fa';
@@ -9,7 +10,8 @@ const WorkoutsCard = ({ work }: { work: IWorkOuts }) => {
     const { id, name, image, muscleGroups, equipment, description, difficulty, duration, caloriesBurned, sets, rating, reps, instructions } = work
     return (
         <div>
-            <div className="card bg-base-100 border-2 shadow-sm">
+            <Link href={`/workouts/${id}`}>
+               <div className="card bg-base-100 border-2 shadow-sm">
                 <figure>
                     <Image className='w-full' src={image} alt='Exercise' width={200} height={50}
                     ></Image>
@@ -47,6 +49,8 @@ const WorkoutsCard = ({ work }: { work: IWorkOuts }) => {
                     </div>
                 </div>
             </div>
+            </Link>
+         
         </div>
     );
 };
