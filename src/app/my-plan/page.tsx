@@ -5,6 +5,9 @@ import { WorkoutContext } from '../context/page';
 import MyPlanBoxToday from '../Components/MyPlanPart/MyPlanBoxToday';
 import MyPlanBoxLater from '../Components/MyPlanPart/MyPlanBoxLater';
 import MyPlanCard from '../Components/MyPlanPart/MyPlanCard';
+import Link from 'next/link';
+import SortPlan from '../Components/MyPlanPart/SortPlan';
+import { IWorkOuts } from '../Type/type';
 
 const MyPlanPage = () => {
     const {
@@ -13,7 +16,22 @@ const MyPlanPage = () => {
     } = useContext(WorkoutContext);
 
     const [toggle, setToggle] = useState(false);
-
+const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("rating");
+const sortWorks = (works:IWorkOuts[])=>{
+const sortedWorks = [...works];
+if(sortBy === "duration"){
+sortedWorks.sort((a,b)=>b.duration - a.duration)
+}
+else if(sortBy === "calories"){
+sortedWorks.sort((a,b)=>b.caloriesBurned - a.caloriesBurned)
+}
+else if(sortBy === "rating"){
+sortedWorks.sort((a,b)=>b.rating - a.rating)
+}
+return sortedWorks;
+}
+const sortedToday = sortWorks(todayList)
+const sortedLater = sortWorks(laterList)
     return (
         <div className="max-w-8xl mx-auto my-8 p-6 md:px-20">
 
@@ -29,7 +47,20 @@ const MyPlanPage = () => {
             <div>
                 { toggle? <MyPlanBoxToday></MyPlanBoxToday> :<MyPlanBoxLater></MyPlanBoxLater> }
             </div>
-            <div className="my-10">
+               <div className='text-center'>
+            <select 
+            defaultValue="Rating" 
+            className="select appearance-none"
+            value={sortBy}
+            onChange={(e)=>setSortBy(e.target.value as "duration" | "calories" | "rating")}
+            >
+                <option disabled={true}>Rating</option>
+                <option value={"duration"}>Duration</option>
+                <option value={"calories"}>Calories</option>
+                <option value={"rating"}>Rating</option>
+            </select>
+        </div>
+                <div className="my-10">
 
                 <div className="tabs tabs-box">
 
@@ -45,7 +76,7 @@ const MyPlanPage = () => {
 
                     <div className="tab-content bg-base-100 border-base-300 p-6">
 
-                        {todayList.length === 0 ? (
+                        {sortedToday.length === 0 ? (
                             <div className="text-center space-y-4 mt-4">
                                 <h2 className="font-extrabold text-2xl">
                                     NOTHING HERE YET
@@ -55,12 +86,12 @@ const MyPlanPage = () => {
                                     Browse the library and add a lift to get today moving.
                                 </p>
 
-                                <button className="btn rounded-4xl bg-[#C2F10D] text-black">
+                                <Link href={'/'} className="btn rounded-4xl bg-[#C2F10D] text-black">
                                     Go to workouts
-                                </button>
+                                </Link>
                             </div>
                         ) : (
-                            todayList.map((work, idx) => (
+                            sortedToday.map((work, idx) => (
                                 <MyPlanCard
                                     key={idx}
                                     work={work}
@@ -83,7 +114,7 @@ const MyPlanPage = () => {
 
                     <div className="tab-content bg-base-100 border-base-300 p-6">
 
-                        {laterList.length === 0 ? (
+                        {sortedLater.length === 0 ? (
                             <div className="text-center space-y-4 mt-4">
                                 <h2 className="font-extrabold text-2xl">
                                     NOTHING HERE YET
@@ -93,12 +124,12 @@ const MyPlanPage = () => {
                                     Browse the library and add a lift to get today moving.
                                 </p>
 
-                                <button className="btn rounded-4xl bg-[#C2F10D] text-black">
+                                <Link href={'/'}  className="btn rounded-4xl bg-[#C2F10D] text-black">
                                     Go to workouts
-                                </button>
+                                </Link>
                             </div>
                         ) : (
-                            laterList.map((work, idx) => (
+                            sortedLater.map((work, idx) => (
                                 <MyPlanCard
                                     key={idx}
                                     work={work}
@@ -110,8 +141,12 @@ const MyPlanPage = () => {
 
                 </div>
 
+           
             </div>
-        </div>
+          
+            </div>
+            
+    
     );
 };
 
