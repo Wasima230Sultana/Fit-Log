@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className='flex justify-center'>
           <Image className="w-10 hidden lg:flex" src={logo} alt='Logo' width={30} height={1}
           ></Image>
-          <Link href={'/'} className="btn btn-ghost text-3xl font-extrabold">FITLOG</Link>
+          <Link href={'/'} className="btn btn-ghost text-2xl md:text-3xl font-extrabold">FITLOG</Link>
 
         </div>
       </div>

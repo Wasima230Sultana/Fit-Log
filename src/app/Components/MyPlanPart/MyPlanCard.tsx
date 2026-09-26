@@ -7,18 +7,21 @@ import { CiClock1, CiStar } from 'react-icons/ci';
 import { FaFire } from 'react-icons/fa';
 import { MdCancel, MdDone } from 'react-icons/md';
 import { WorkoutContext } from '@/app/context/page';
+import { toast } from 'react-toastify';
 
-const MyPlanCard = ({ work ,type}: { work: IWorkOuts,type: 'today' | 'later'; }) => {
+const MyPlanCard = ({ work, type }: { work: IWorkOuts, type: 'today' | 'later'; }) => {
     const { id, name, image, equipment, duration, caloriesBurned, rating } = work
     const { laterList, setLaterList, todayList, setTodayList } = useContext(WorkoutContext)
-    // const [typeOf, setTypeOf] = useState<"today" | "later" | "">("");
+    const handleMarkDone = ()=>{
+        toast.success(`Mark as done ${name}`)
+    }
     const handleRemove = () => {
         if (type === "later") {
             const updatedLater = laterList.filter((today) => String(today.id) !== String(work.id))
             setLaterList(updatedLater)
             console.log('remove')
         }
-        else if (type=== "today") {
+        else if (type === "today") {
             const updatedToday = todayList.filter((today) => String(today.id) !== String(work.id))
             setTodayList(updatedToday)
             console.log('remove')
@@ -66,7 +69,7 @@ const MyPlanCard = ({ work ,type}: { work: IWorkOuts,type: 'today' | 'later'; })
                 </div>
                 <div className='flex flex-wrap gap-2 items-center'>
                     <Link className='btn rounded-2xl border-mist-600' href={`/workouts/${id}`}>View Details</Link>
-                    <Link className='btn rounded-2xl bg-[#CCFF00] text-black' href={`/workouts/${id}`}><MdDone className='text-xl' />Mark as Done</Link>
+                    <button onClick={handleMarkDone} className='btn rounded-2xl bg-[#CCFF00] text-black' ><MdDone className='text-xl' />Mark as Done</button>
                     <div>
                         <button onClick={() => handleRemove()} className='text-2xl'><MdCancel />
                         </button>

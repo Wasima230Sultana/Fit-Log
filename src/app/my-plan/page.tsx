@@ -15,22 +15,22 @@ const MyPlanPage = () => {
     } = useContext(WorkoutContext);
 
     const [toggle, setToggle] = useState(false);
-const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("rating");
-const sortWorks = (works:IWorkOuts[])=>{
-const sortedWorks = [...works];
-if(sortBy === "duration"){
-sortedWorks.sort((a,b)=>b.duration - a.duration)
-}
-else if(sortBy === "calories"){
-sortedWorks.sort((a,b)=>b.caloriesBurned - a.caloriesBurned)
-}
-else if(sortBy === "rating"){
-sortedWorks.sort((a,b)=>b.rating - a.rating)
-}
-return sortedWorks;
-}
-const sortedToday = sortWorks(todayList)
-const sortedLater = sortWorks(laterList)
+    const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("rating");
+    const sortWorks = (works: IWorkOuts[]) => {
+        const sortedWorks = [...works];
+        if (sortBy === "duration") {
+            sortedWorks.sort((a, b) => b.duration - a.duration)
+        }
+        else if (sortBy === "calories") {
+            sortedWorks.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+        }
+        else if (sortBy === "rating") {
+            sortedWorks.sort((a, b) => b.rating - a.rating)
+        }
+        return sortedWorks;
+    }
+    const sortedToday = sortWorks(todayList)
+    const sortedLater = sortWorks(laterList)
     return (
         <div className="max-w-8xl mx-auto my-8 p-6 md:px-20">
 
@@ -44,21 +44,21 @@ const sortedLater = sortWorks(laterList)
                 </p>
             </div>
             <div>
-                { toggle? <MyPlanBoxToday></MyPlanBoxToday> :<MyPlanBoxLater></MyPlanBoxLater> }
+                {toggle ? <MyPlanBoxToday></MyPlanBoxToday> : <MyPlanBoxLater></MyPlanBoxLater>}
             </div>
-               <div className='text-center'>
-            <select    
-            className="select appearance-none"
-            value={sortBy}
-            onChange={(e)=>setSortBy(e.target.value as "duration" | "calories" | "rating")}
-            >
-                <option disabled={true}>Rating</option>
-                <option value={"duration"}>Duration</option>
-                <option value={"calories"}>Calories</option>
-                <option value={"rating"}>Rating</option>
-            </select>
-        </div>
-                <div className="my-10">
+            <div className='text-center'>
+                <select
+                    className="select appearance-none"
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as "duration" | "calories" | "rating")}
+                >
+                    <option disabled={true}>Rating</option>
+                    <option value={"duration"}>Duration</option>
+                    <option value={"calories"}>Calories</option>
+                    <option value={"rating"}>Rating</option>
+                </select>
+            </div>
+            <div className="my-10">
 
                 <div className="tabs tabs-box">
 
@@ -123,7 +123,7 @@ const sortedLater = sortWorks(laterList)
                                     Browse the library and add a lift to get today moving.
                                 </p>
 
-                                <Link href={'/'}  className="btn rounded-4xl bg-[#C2F10D] text-black">
+                                <Link href={'/'} className="btn rounded-4xl bg-[#C2F10D] text-black">
                                     Go to workouts
                                 </Link>
                             </div>
@@ -141,12 +141,12 @@ const sortedLater = sortWorks(laterList)
 
                 </div>
 
-           
+
             </div>
-          
-            </div>
-            
-    
+
+        </div>
+
+
     );
 };
 
