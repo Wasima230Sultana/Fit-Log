@@ -4,8 +4,8 @@ import logo from '@/app/assets/logo.png'
 const Footer = () => {
     return (
         <div className=''>
-            <div className="divider lg:divider-horizontal "></div>
-            <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 flex flex-wrap text-center md:justify-between px-20">
+            <div className="divider "></div>
+            <footer className="footer sm:footer-horizontal text-neutral-content items-center pb-5 flex flex-wrap text-center md:justify-between px-20 bg-base-100">
                 <div className='flex justify-center'>
                     <Image className="w-10 " src={logo} alt='Logo' width={30} height={1}
                     ></Image>

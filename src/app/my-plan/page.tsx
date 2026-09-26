@@ -66,7 +66,7 @@ const MyPlanPage = () => {
                     <input
                         type="radio"
                         name="my_tabs_6"
-                        className="tab"
+                        className="tab checked:text-[#C2F10D] checked:bg-black"
                         aria-label="Today's Plan"
                         checked={toggle}
                         onChange={() => setToggle(true)}
@@ -105,7 +105,7 @@ const MyPlanPage = () => {
                     <input
                         type="radio"
                         name="my_tabs_6"
-                        className="tab"
+                        className="tab checked:text-[#C2F10D] checked:bg-black"
                         aria-label="Saved"
                         checked={!toggle}
                         onChange={() => setToggle(false)}

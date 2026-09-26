@@ -11,7 +11,7 @@ const Navbar = () => {
     <li><Link className={pathname === '/my-plan' ? 'text-[#C2F800]': ''}  href={'/my-plan'}>My Plan</Link></li>
   </>
   return (
-    <div className="navbar bg-base-100 shadow-lg p-5 md:px-20">
+    <div className="navbar bg-base-100 sticky top-0 z-50 shadow-lg p-5 md:px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow ">
             {links}
           </ul>
         </div>
@@ -31,7 +31,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-lg">
           {links}
         </ul>
       </div>
