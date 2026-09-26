@@ -11,7 +11,7 @@ const Banner = () => {
              { library.scrollIntoView({ behavior: 'smooth', block: 'start', }); }
     };
     return (
-        <section className="max-w-7xl mx-auto my-4 px-4">
+        <section className=" my-4 p-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left bg-[#222630] p-6 md:p-10 rounded-xl">
 
                 {/* Left Content */}
@@ -38,7 +38,7 @@ const Banner = () => {
                 </div>
 
                 {/* Banner Image */}
-                <div className="w-full md:w-[45%]">
+                <div className="w-full md:w-[35%]">
                     <Image
                         src={banner}
                         alt="Workout banner"
