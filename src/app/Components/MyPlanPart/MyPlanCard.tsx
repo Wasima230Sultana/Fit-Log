@@ -13,18 +13,18 @@ const MyPlanCard = ({ work, type }: { work: IWorkOuts, type: 'today' | 'later'; 
     const { id, name, image, equipment, duration, caloriesBurned, rating } = work
     const { laterList, setLaterList, todayList, setTodayList } = useContext(WorkoutContext)
     const handleMarkDone = ()=>{
-        toast.success(`Mark as done ${name}`)
+        toast.success(`"${name}" marked as done! `)
     }
     const handleRemove = () => {
         if (type === "later") {
             const updatedLater = laterList.filter((today) => String(today.id) !== String(work.id))
             setLaterList(updatedLater)
-            console.log('remove')
+             toast.success(`"${work.name}" removed!`);
         }
         else if (type === "today") {
             const updatedToday = todayList.filter((today) => String(today.id) !== String(work.id))
             setTodayList(updatedToday)
-            console.log('remove')
+             toast.success(`"${work.name}" removed!`);
         }
 
     }

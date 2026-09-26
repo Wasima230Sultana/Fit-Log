@@ -4,7 +4,7 @@ import WorkoutsCard from '../Components/homepage/WorkoutsCard';
 
 const getData = async (): Promise<IWorkOuts[]> => {
     try {
-        const res = await fetch('https://api.abcz.workers.dev/api/fitlog')
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`)
         const data = await res.json()
         return data
     }
