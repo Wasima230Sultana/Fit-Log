@@ -46,7 +46,10 @@ const MyPlanPage = () => {
             <div>
                 {toggle ? <MyPlanBoxToday></MyPlanBoxToday> : <MyPlanBoxLater></MyPlanBoxLater>}
             </div>
-            <div className='text-center'>
+       
+                
+            <div className='text-center md:text-right'>
+                 <h4 className='text-lg'>Sort By</h4>
                 <select
                     className="select appearance-none"
                     value={sortBy}
@@ -57,7 +60,8 @@ const MyPlanPage = () => {
                     <option value={"calories"}>Calories</option>
                     <option value={"rating"}>Rating</option>
                 </select>
-            </div>
+         </div>
+           
             <div className="my-10">
 
                 <div className="tabs tabs-box">
