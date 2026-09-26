@@ -4,7 +4,7 @@ A modern workout management app where users can explore exercises, view workout 
 
 ## 🔗 Live Demo
 
-[Visit FITLOG](YOUR_DEPLOY_LINK_HERE)
+[Visit FITLOG](https://fit-log-theta-eight.vercel.app/)
 
 ## 🛠️ Technologies Used
 
