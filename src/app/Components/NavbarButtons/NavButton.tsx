@@ -13,8 +13,9 @@ const NavButton = () => {
             </Link>
             </div>
            <div>
+            <Link href={'/my-plan'}>
         <p className=' rounded-2xl'>Saved <span className='btn rounded-full border-2 border-mist-600'>  {laterList.length}</span></p>
-
+</Link>
            </div>
         
         </div>

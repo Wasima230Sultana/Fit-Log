@@ -15,7 +15,7 @@ const MyPlanPage = () => {
     } = useContext(WorkoutContext);
 
     const [toggle, setToggle] = useState(false);
-    const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("rating");
+    const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("duration");
     const sortWorks = (works: IWorkOuts[]) => {
         const sortedWorks = [...works];
         if (sortBy === "duration") {
@@ -52,7 +52,7 @@ const MyPlanPage = () => {
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as "duration" | "calories" | "rating")}
                 >
-                    <option disabled={true}>Rating</option>
+                    {/* <option disabled={true}>Duration</option> */}
                     <option value={"duration"}>Duration</option>
                     <option value={"calories"}>Calories</option>
                     <option value={"rating"}>Rating</option>

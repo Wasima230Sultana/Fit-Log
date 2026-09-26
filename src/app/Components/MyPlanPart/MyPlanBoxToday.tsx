@@ -13,7 +13,7 @@ const MyPlanBoxToday = () => {
         <div>
             <div className='my-2 flex justify-between items-center p-5 rounded-2xl border-2 border-gray-600 shadow-2xl'>
                 <div>
-                    <p className='text-[#8A92A0]'>ExercisesToday</p>
+                    <p className='text-[#8A92A0]'>Exercises</p>
                     <p className='text-4xl text-[#CCFF00] font-bold'>{todayList.length}</p>
                 </div>
 

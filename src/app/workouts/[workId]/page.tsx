@@ -26,7 +26,7 @@ const WorkoutsDetails = async ({ params }: IWorkoutsDetails) => {
     // console.log(work)
     return (
         <div className='space-y-6 my-6 px-10 '>
-            <div className="card card-side bg-base-100 shadow-sm gap-5 ">
+            <div className="card md:card-side bg-base-100 shadow-sm gap-5 ">
                 <figure>
                     <Image className='w-full p-1 rounded-2xl' src={work.image} alt='Image' width={400} height={100}></Image>
                 </figure>
