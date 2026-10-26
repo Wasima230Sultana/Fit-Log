@@ -78,10 +78,8 @@ git clone <https://github.com/Wasima230Sultana/Fit-Log.git>
 ### 2. Navigate to the Project Directory
 
 ```bash
-cd fitlog
+cd Fit-Log
 ```
-
-Replace `fitlog` with the actual folder name if it is different.
 
 ### 3. Install Dependencies
 
